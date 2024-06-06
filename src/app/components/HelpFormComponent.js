@@ -10,7 +10,7 @@ const HelpFormComponent = () => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
-        setFormErrors({ ...formErrors, [name]: '' }); // Limpa o erro quando o campo é alterado
+        setFormErrors({ ...formErrors, [name]: '' });
     }
 
     const handleSubmit = (event) => {
