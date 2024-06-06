@@ -1,10 +1,8 @@
-
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import Header from '../app/components/HeaderComponent';
-import theme from "../../styles/theme.js";
-import Footer from './components/FooterComponent';
+import { lightTheme, darkTheme } from '../../../styles/theme.js';
+import Header from '../components/Header';
 
 export const metadata = {
   title: "Vakinha Crypto",
@@ -13,6 +11,13 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const theme = useMemo(() => (darkMode ? darkTheme : lightTheme), [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   return (
     <html lang="en">
@@ -24,9 +29,8 @@ const RootLayout = ({ children }) => {
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Header />
+          <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
