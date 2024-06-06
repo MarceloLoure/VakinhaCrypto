@@ -18,7 +18,6 @@ const HelpFormComponent = () => {
         let errors = {};
         let isValid = true;
 
-        // Validação dos campos
         if (!formData.title || formData.title.trim() === '') {
             errors.title = 'Campo obrigatório';
             isValid = false;
