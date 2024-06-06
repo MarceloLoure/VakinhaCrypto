@@ -41,7 +41,7 @@ const HelpFormComponent = () => {
         if (isValid) {
             console.log(formData); // Envie os dados se o formulário for válido
         } else {
-            setFormErrors(errors); // Atualiza os erros para exibição na UI
+            setFormErrors(errors);
         }
     }
 
@@ -128,10 +128,40 @@ const HelpFormComponent = () => {
                     fullWidth
                 />
                 <Box>
-                    <Button type="submit">
+                    <Button
+                     type="submit"
+                     sx={{
+                            color: '#FFF',
+                            backgroundColor: '#000',
+                            ":hover": {
+                                backgroundColor: '#333',
+                            }
+                        }}
+                    >
                         Enviar
                     </Button>
                 </Box>
+            </Box>
+
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+                maxWidth: '500px',
+                marginTop: 2
+            }}>
+
+                <Typography variant="body2">Preencha todos os campos e clique em enviar para pedir ajuda.</Typography>
+
+                <Typography variant="body2">Seu pedido de ajuda será exibido na lista de pedidos de ajuda.</Typography>
+
+                <Typography variant="body2">Sua carteira deve ser na rede Polygon</Typography>
+
+                <Typography variant="body2">As doações serão basicamente em MATIC, token principal da rede Polygon.</Typography>
+
+                <Typography variant="body2">Você pode pedir ajuda para qualquer coisa, desde que seja honesto.</Typography>
+
+                <Typography variant="body2">Obrigado por usar o Vakinha Crypto!</Typography>
             </Box>
 
         </Box>

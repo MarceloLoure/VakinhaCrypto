@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -26,7 +27,9 @@ const Header = () => {
         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
         </IconButton>
         <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-          Vakinha Crypto
+          <Link href='/' style={{ textDecoration: 'none', color: '#000'}} >
+            Vakinha Crypto
+          </Link>
         </Typography>
 
         <Stack direction="row" spacing={2}>
