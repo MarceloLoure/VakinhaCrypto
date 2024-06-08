@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState } from "react";
+import Web3 from "web3";
 import { Box, Typography, Stack, TextField, InputAdornment, Button } from "@mui/material";
+import { openRequest } from "@/services/Web3Services";
 
 const HelpFormComponent = () => {
     const [formData, setFormData] = useState({});
@@ -13,7 +15,7 @@ const HelpFormComponent = () => {
         setFormErrors({ ...formErrors, [name]: '' });
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         let errors = {};
         let isValid = true;
@@ -35,11 +37,17 @@ const HelpFormComponent = () => {
 
         if (!formData.goal || formData.goal.trim() === '') {
             errors.goal = 'Campo obrigatório';
+            setFormData({ ...formData, goal: Web3.utils.toWei(goal, 'ether') });
             isValid = false;
         }
 
         if (isValid) {
-            console.log(formData); // Envie os dados se o formulário for válido
+            openRequest(formData)
+                .then(result => {
+                    alert('Pedido de ajuda enviado com sucesso!')
+                    window.location.href = '/';
+                })
+                .catch(error => alert(`Erro ao enviar pedido de ajuda: ${error.message}`));
         } else {
             setFormErrors(errors);
         }
