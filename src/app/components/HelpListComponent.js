@@ -46,8 +46,12 @@ const HelpListComponent = () => {
     const handleDonate = async (id) => {
         try {
             setLoading(true);
-            const amountInWei = Web3.utils.toWei(donationAmount[id], 'ether');
-            await donate(id, amountInWei);
+
+            const remove = parseFloat(donationAmount[id].replace(',', '.'));
+
+            const convert = Web3.utils.toWei(remove.toString(), 'ether');
+
+            await donate(id, convert);
             alert('Doação realizada com sucesso!');
             setLoading(false);
             window.location.href = '/';
@@ -66,10 +70,6 @@ const HelpListComponent = () => {
 
     return (
         <Box>
-            {loading && <Typography variant="h6" align="center">Carregando...</Typography>}
-
-            {!loading && requests.length === 0 && <Typography variant="h6" align="center">Nenhum pedido de ajuda cadastrado</Typography>}
-
             <TableContainer component={Paper} sx={{marginTop: 2 }}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -116,21 +116,20 @@ const HelpListComponent = () => {
                                                 alignItems: 'center',
                                             }}
                                         >
-                                             <IMaskInput
-                                                    mask={Number}
-                                                    scale={4}
-                                                    thousandsSeparator=''
-                                                    padFractionalZeros={true}
-                                                    normalizeZeros={true}
-                                                    radix=','
-                                                    mapToRadix={['.']}
-                                                    type="text"
-                                                    inputMode="decimal"
-                                                    placeholder="0,0000"
-                                                    value={donationAmount[request.id] || ''}
-                                                    onAccept={(value) => handleDonationAmountChange(request.id, value)}
-                                                    style={{ width: '50%', padding: '10px', fontSize: '16px' }}
-                                                />
+                                            <IMaskInput
+                                                mask={Number}
+                                                scale={2}
+                                                radix=","
+                                                thousandsSeparator=""
+                                                padFractionalZeros={true}
+                                                normalizeZeros={true}
+                                                type="text"
+                                                inputMode="decimal"
+                                                placeholder="0,00"
+                                                value={donationAmount[request.id] || ''}
+                                                onChange={(e) => handleDonationAmountChange(request.id, e.target.value)}
+                                                style={{ width: '50%', padding: '10px', fontSize: '16px' }}
+                                            />
                                             <Button 
                                                 variant="contained" 
                                                 sx={{

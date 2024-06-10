@@ -22,8 +22,8 @@ const HomePage = () => {
       }}>
 
         <Typography variant='h2'>Bem-vindo ao Vakinha Crypto!</Typography>
-        <Typography variant='body1'>Projeto destinado a ajudar quem precisa</Typography>
-        <Typography variant='body1'>Faça parte da nossa comunidade e ajude quem precisa</Typography>
+        <Typography variant='body1'>Projeto destinado a ajudar quem precisa.</Typography>
+        <Typography variant='body1'>Faça parte da nossa comunidade e ajude!</Typography>
 
       </Stack>
 

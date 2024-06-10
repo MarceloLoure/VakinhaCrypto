@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Vakinha Crypto
+## Web3 learning project.
 
-## Getting Started
+Vakinha Crypt is a project created to study web3 development, based on the knowledge passed on by [Luiz Tools](https://www.luiztools.com.br/). The project is based on a Smart Contract written in Solidity using the IDE Remix and a DAPP Frontend made in Next.js with the Mui library for componentization.
 
-First, run the development server:
+The objective is to create requests for help where payments will be made through cryptocurrencies, the Blockchain chosen for the contract was Polygon, so all donations must be made in MATIC. Any other user will be able to donate the amount they want to open orders.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Create help requests.
+- Make donations
+- Approve, deny, finalize help requests (admin only)
+- Block or unblock a user who has performed an illegal action.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tech
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Dillinger uses a number of open source projects to work properly:
 
-## Learn More
+- [Next.js] - React Framework with SSR and SSG.
+- [Solidity] - Language for writing smart contracts on the Ethereum blockchain.
 
-To learn more about Next.js, take a look at the following resources:
+And of course Dillinger itself is open source with a [public repository][dill]
+ on GitHub.
+ 
+## Prerequisites
+    1. Node.js v18.17.0 or higher
+    2 npm (package manager)
+ 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ 1. Deploy the Smart Contract
+    Use the [IDE Remix](https://remix.ethereum.org/) to deploy the contract, you can find the contract code in the FloodHelp.sol file.
 
-## Deploy on Vercel
+ 2. Environment Variables
+    Create a `.env` file to store your contract address. Take the example in the `.env.example` file.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ 3. Install Dependencies
+    `npm install`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ 4. Start the Application
+    `npm run dev`
+    The application will be available at http://localhost:3000.
+
+## License
+
+MIT

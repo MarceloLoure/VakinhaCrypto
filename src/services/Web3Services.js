@@ -1,10 +1,8 @@
 import Web3 from "web3";
 import ABI from "./ABI.json";
+import 'dotenv/config'
 
-const CONTRACT_ADDRESS = '0x505d369eA2805e96DD7D4514120c7034d3F6bf16'
-// '0x505d369eA2805e96DD7D4514120c7034d3F6bf16' Polygon MainNet
-//'0x6BbE6B3669A9dd831166C43420f3a6D85A2E7cfF' BSCTESTNET
-// '0xe33C07a4b58027878d5E9509eB9641B6C1b11e0F';
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 
 export const doLogin = async () => {
     if(!window.ethereum) throw new Error('Metamask not found');
